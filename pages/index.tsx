@@ -191,6 +191,7 @@ const QUERY = gql`
       tech
       type
       github
+      website
       devStatus
     }
   }
