@@ -83,7 +83,7 @@ function About({ developer }: Props) {
                   </li>
                   <li className="flex items-center">
                     <HiChevronRight className="h-6 w-6 flex-shrink-0 text-red-500 " />{" "}
-                    Api's
+                    API's
                   </li>
                 </ul>
               </div>

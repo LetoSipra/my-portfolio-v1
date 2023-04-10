@@ -68,7 +68,7 @@ function Landing({ developer }: Props) {
             <animated.span
               style={headTitle2}
               className="block bg-gradient-to-r from-slate-300 to-slate-500 bg-clip-text py-1 text-transparent">
-              Yusuf a Frontend Web
+              Yusuf a Full-Stack
             </animated.span>
             <animated.span
               style={headTitle3}
