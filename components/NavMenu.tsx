@@ -34,7 +34,7 @@ function NavMenu({
     ${navMenuOpen ? "w-full" : " w-0"} `}>
         <div className={`m-auto`}>
           <HiX
-            className={`absolute right-10 top-6 h-11 w-11 text-white opacity-0 transition-all duration-1000 ${
+            className={`absolute right-12 top-6 h-11 w-11 cursor-pointer hover:bg-white/5 rounded-xl text-red-500 opacity-0 transition-all duration-1000 ${
               navMenuOpen ? "visible opacity-100 ease-in-out" : "invisible"
             }`}
             onClick={() => setNavMenuOpen(false)}

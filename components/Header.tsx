@@ -17,6 +17,8 @@ interface Props {
   contact: MutableRefObject<HTMLDivElement>;
   currentPage: string;
   setNavMenuOpen: Dispatch<SetStateAction<boolean>>;
+  navMenuOpen: boolean;
+  developer: Developer[];
 }
 
 function Header({
@@ -26,9 +28,11 @@ function Header({
   contact,
   currentPage,
   setNavMenuOpen,
+  navMenuOpen,
+  developer,
 }: Props) {
   const [scroll, setScroll] = useState(true);
-  const [isHovering, setIsHovering] = useState(false);
+  const [componentDidMount, setcomponentDidMount] = useState<boolean>(false);
   const [y, setY] = useState(0);
   const navList = [
     { label: "Welcome", scrollTo: welcome },
@@ -47,7 +51,6 @@ function Header({
 
   const handleNavigation = useCallback(
     (e: any) => {
-      if (isHovering) return;
       const window = e.currentTarget;
       if (y > window.scrollY) {
         setScroll(true);
@@ -58,7 +61,6 @@ function Header({
     },
     [y]
   );
-  console.log(isHovering);
 
   useEffect(() => {
     setY(window.scrollY);
@@ -69,19 +71,22 @@ function Header({
     };
   });
 
+  useEffect(() => {
+    setcomponentDidMount(true);
+    setScroll(true);
+  }, []);
+
   return (
     <>
       <header
-        onMouseEnter={() => setIsHovering(true)}
-        onMouseLeave={() => setIsHovering(false)}
         className={`fixed top-0 ${
           scroll ? "flex" : "hidden"
-        } z-50 h-24 w-full rounded-3xl border-b border-red-500/50 bg-[#141517]/90`}>
+        } z-50 h-24 w-full rounded-3xl border-b border-red-500/40 bg-[#141517]/90`}>
         <div className="flex w-full items-center md:mx-auto md:flex-[0.8]">
           <Link href={"/"}>
             <animated.img
               style={logo}
-              src="https://gcdnb.pbrd.co/images/jCW1XjiA6dQX.png?o=1"
+              src={developer[0].logo.url}
               className="ml-5 h-[50px] cursor-pointer object-contain transition duration-300 hover:opacity-75"
               alt=""
             />
@@ -112,7 +117,7 @@ function Header({
                 className={`cursor-pointer rounded-xl px-3 py-2 transition duration-300 hover:bg-white/5
                 ${
                   !currentPage &&
-                  "first:font-extrabold first:shadow-sm first:shadow-red-500/50"
+                  "first:font-extrabold first:shadow-sm first:shadow-red-500/25"
                 }`}
                 onClick={() => {
                   navList[i].scrollTo.current.scrollIntoView({
@@ -124,11 +129,15 @@ function Header({
               </animated.li>
             ))}
           </ul>
-          <div
-            onClick={() => setNavMenuOpen(true)}
-            className="mx-10 flex w-full justify-end md:hidden">
-            <HiMenu className="h-11 w-11 text-gray-200" />
-          </div>
+          {!navMenuOpen && (
+            <div
+              onClick={() => setNavMenuOpen(true)}
+              className={`mx-10 flex w-full transform justify-end opacity-0 transition-all duration-1000 ease-in-out md:hidden ${
+                componentDidMount && "opacity-100"
+              }`}>
+              <HiMenu className="h-16 w-16 cursor-pointer rounded-full p-3 text-slate-400 transition duration-200 hover:bg-white/5" />
+            </div>
+          )}
         </div>
       </header>
     </>

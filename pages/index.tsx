@@ -8,18 +8,22 @@ import Contact from "@/components/Contact";
 import Sidebar from "@/components/Sidebar";
 import { MutableRefObject, useEffect, useRef, useState } from "react";
 import NavMenu from "@/components/NavMenu";
+import { useMediaQuery } from "react-responsive";
 
 interface Props {
   projects: Projects[];
+  developer: Developer[];
 }
 
-export default function Home({ projects }: Props) {
+export default function Home({ projects, developer }: Props) {
   const [visibleSection, setVisibleSection] = useState<string>("");
   const [navMenuOpen, setNavMenuOpen] = useState<boolean>(false);
+  const isMobile = useMediaQuery({ query: "(max-width: 767px)" });
   const welcome = useRef() as MutableRefObject<HTMLDivElement>;
   const about = useRef() as MutableRefObject<HTMLDivElement>;
   const project = useRef() as MutableRefObject<HTMLDivElement>;
   const contact = useRef() as MutableRefObject<HTMLDivElement>;
+  console.log(developer);
 
   const getDimensions = (element: HTMLElement) => {
     const { height } = element.getBoundingClientRect();
@@ -76,14 +80,13 @@ export default function Home({ projects }: Props) {
   }, [visibleSection]);
 
   useEffect(() => {
-    welcome.current.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-    });
-    disableScroll();
-    setTimeout(() => {
-      enableScroll();
-    }, 4000);
+    window.scrollTo(0, 0);
+    if (!isMobile) {
+      disableScroll();
+      setTimeout(() => {
+        enableScroll();
+      }, 3000);
+    }
   }, []);
 
   return (
@@ -102,6 +105,8 @@ export default function Home({ projects }: Props) {
         contact={contact}
         currentPage={visibleSection}
         setNavMenuOpen={setNavMenuOpen}
+        navMenuOpen={navMenuOpen}
+        developer={developer}
       />
 
       <main className="flex">
@@ -116,25 +121,25 @@ export default function Home({ projects }: Props) {
 
         {/* left container */}
         <section className=" hidden max-h-screen flex-[0.1]  md:flex ">
-          <Sidebar />
+          <Sidebar developer={developer} />
         </section>
 
         {/* main container */}
         <section className="w-full border-[blue] md:flex-[0.8]">
           <div ref={welcome} className="mt-[136px] h-screen scroll-m-[96px]">
-            <Landing />
+            <Landing developer={developer} />
           </div>
 
-          <div ref={about} className="mb-10 mt-5 h-fit scroll-m-[96px]">
-            <About />
+          <div ref={about} className="mb-10 mt-5 h-fit -scroll-m-[16px]">
+            <About developer={developer} />
           </div>
 
-          <div ref={project} className="h-fit scroll-m-[96px] xl:mx-10">
+          <div ref={project} className="h-fit -scroll-m-[36px] xl:mx-10">
             <Projects projects={projects} />
           </div>
 
-          <div ref={contact} className="p-16">
-            <Contact />
+          <div ref={contact} className="-scroll-m-[96px] p-16">
+            <Contact developer={developer} />
           </div>
 
           <div className="mb-0.5 text-center font-mono text-gray-200/80">
@@ -155,6 +160,27 @@ const client = new GraphQLClient(
 
 const QUERY = gql`
   {
+    developer {
+      name
+      slug
+      surname
+      landing
+      aboutEntry
+      aboutMid
+      aboutFinal
+      skills
+      photo {
+        url
+      }
+      logo {
+        url
+      }
+      contact
+      eMail
+      linkedin
+      github
+      twitter
+    }
     projects {
       title
       slug
@@ -171,10 +197,11 @@ const QUERY = gql`
 `;
 export async function getStaticProps() {
   const { projects }: any = await client.request(QUERY);
-
+  const { developer }: any = await client.request(QUERY);
   return {
     props: {
       projects,
+      developer,
     },
   };
 }
