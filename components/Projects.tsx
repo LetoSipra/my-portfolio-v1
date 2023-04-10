@@ -39,7 +39,7 @@ function Projects({ projects }: Props) {
         </h1>
         {projects.map((project) => (
           <div
-            className={`project mx-auto mt-[136px] max-w-sm translate-y-52 items-center space-y-7 rounded-3xl border border-red-500/50 bg-black/25 px-2 py-5 font-mono tracking-wide text-gray-200 opacity-0 outline outline-red-500/25 blur-xl filter transition duration-300 hover:border-red-500/75 hover:outline-red-500/50 sm:max-w-md md:max-w-lg lg:flex lg:max-w-5xl lg:space-x-2 lg:p-5 xl:mx-14 xl:p-10 xl:odd:flex-row-reverse xl:odd:self-end xl:even:self-start
+            className={`project mx-auto mt-[136px] max-w-sm translate-y-52 items-center space-y-7 rounded-3xl border border-red-500/50 bg-black/25 px-2 py-5 font-mono tracking-wide text-gray-200 opacity-0 outline outline-black/50 blur-xl filter transition duration-300 hover:border-red-500/75 hover:outline-black sm:max-w-md md:max-w-lg lg:flex lg:max-w-5xl lg:space-x-2 lg:p-5 xl:mx-14 xl:p-10 xl:odd:flex-row-reverse xl:odd:self-end xl:even:self-start
             `}
             key={project.slug}>
             <div className="w-full">
