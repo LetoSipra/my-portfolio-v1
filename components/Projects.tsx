@@ -67,7 +67,9 @@ function Projects({ projects }: Props) {
               <p className="text-lg md:text-xl">{project.desc}</p>
               <p className="pt-5 text-sm text-red-500">{project.tech}</p>
               <div className="mx-5 flex items-center justify-end space-x-5">
-                <HiExternalLink className="h-10 w-10 cursor-pointer rounded-md text-white transition duration-200 hover:bg-white/5 hover:text-red-500" />
+                <Link href={project.website} target="_blank">
+                  <HiExternalLink className="h-10 w-10 cursor-pointer rounded-md text-white transition duration-200 hover:bg-white/5 hover:text-red-500" />
+                </Link>
                 <Link href={project.github} target="_blank">
                   <FaGithub className="h-10 w-10 cursor-pointer rounded-md p-1 text-white transition duration-200 hover:bg-white/5 hover:text-red-500" />
                 </Link>

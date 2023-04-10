@@ -7,6 +7,7 @@ interface Projects {
   };
   tech: string;
   github: string;
+  website: string;
   type: string;
   devStatus: boolean;
 }
