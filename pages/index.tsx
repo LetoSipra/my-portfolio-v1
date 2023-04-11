@@ -126,11 +126,11 @@ export default function Home({ projects, developer }: Props) {
 
         {/* main container */}
         <section className="w-full border-[blue] md:flex-[0.8]">
-          <div ref={welcome} className="mt-[136px] h-screen scroll-m-[96px]">
+          <div ref={welcome} className="mt-[136px] h-fit scroll-m-[96px]">
             <Landing developer={developer} />
           </div>
 
-          <div ref={about} className="mb-10 h-fit -scroll-m-[16px]">
+          <div ref={about} className="my-14 h-fit -scroll-m-[16px]">
             <About developer={developer} />
           </div>
 
