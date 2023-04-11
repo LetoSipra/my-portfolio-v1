@@ -9,6 +9,7 @@ import Sidebar from "@/components/Sidebar";
 import { MutableRefObject, useEffect, useRef, useState } from "react";
 import NavMenu from "@/components/NavMenu";
 import { useMediaQuery } from "react-responsive";
+import Link from "next/link";
 
 interface Props {
   projects: Projects[];
@@ -92,10 +93,13 @@ export default function Home({ projects, developer }: Props) {
   return (
     <>
       <Head>
-        <title>Yusuf Akçay Portfolio</title>
-        <meta name="description" content="Yusuf Akçay A Full Stack Web Developer Engineer Portfolio" />
+        <title>Yusuf Akçay</title>
+        <meta
+          name="description"
+          content="Yusuf Akçay A Full Stack Web Developer Engineer Portfolio"
+        />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href={developer[0].logo.url} />
       </Head>
 
       <Header
@@ -143,7 +147,13 @@ export default function Home({ projects, developer }: Props) {
           </div>
 
           <div className="mb-0.5 text-center font-mono text-gray-200/80">
-            Designed & Created by Yusuf Akçay
+            Designed & Created by Yusuf Akçay{" "}
+            <Link
+              href="api/hygraphApi"
+              target="_blank"
+              className="text-blue-500">
+              Check CMS Api
+            </Link>
           </div>
         </section>
 
