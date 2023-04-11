@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://yusufakcay.dev
+
+# Sitemaps
+Sitemap: https://yusufakcay.dev/sitemap.xml
