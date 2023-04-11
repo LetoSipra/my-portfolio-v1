@@ -130,7 +130,7 @@ export default function Home({ projects, developer }: Props) {
             <Landing developer={developer} />
           </div>
 
-          <div ref={about} className="mb-10 mt-5 h-fit -scroll-m-[16px]">
+          <div ref={about} className="mb-10 h-fit -scroll-m-[16px]">
             <About developer={developer} />
           </div>
 

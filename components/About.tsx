@@ -29,7 +29,7 @@ function About({ developer }: Props) {
   return (
     <>
       <div
-        className={`about my-20 translate-y-52 opacity-0 
+        className={`about my-10 translate-y-52 opacity-0 
             blur-xl filter transition-all duration-300
          lg:my-40 xl:mx-10`}>
         <h1 className="mx-5 block rounded-3xl border-b-2 border-red-500 bg-gradient-to-r from-red-500 to-cyan-200 bg-clip-text py-10 pl-5 text-3xl font-semibold tracking-wide text-transparent sm:mx-10 md:mx-14 md:text-5xl">
@@ -37,7 +37,7 @@ function About({ developer }: Props) {
         </h1>
         <div className=" tracking-wide sm:mx-14 lg:flex lg:items-start lg:space-x-5">
           <div className="relative my-10 space-y-10 px-2 text-lg tracking-wide text-gray-300 lg:max-w-md 2xl:max-w-2xl">
-            <div className="absolute bottom-0 right-0 -z-50 hidden rounded-full border-b border-r border-solid border-red-500/50 p-64 lg:flex"></div>
+            <div className="absolute bottom-0 right-0 -z-50 hidden rounded-full border-b border-r border-solid border-red-500/50 p-52 lg:flex"></div>
             <p className="">{developer[0].aboutEntry}</p>
             <p>{developer[0].aboutMid}</p>
             <p>{developer[0].aboutFinal}</p>
