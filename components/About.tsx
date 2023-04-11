@@ -20,7 +20,7 @@ function About({ developer }: Props) {
           }
         });
       },
-      { threshold: 0.65 }
+      { threshold: 0.3 }
     );
     if (isSeen) return;
     observer.observe(about);

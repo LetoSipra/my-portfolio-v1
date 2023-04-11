@@ -23,7 +23,7 @@ function Projects({ projects }: Props) {
           }
         });
       },
-      { threshold: 1 }
+      { threshold: 0.5 }
     );
     projects.forEach((project: any) => {
       if (isSeen) return;
