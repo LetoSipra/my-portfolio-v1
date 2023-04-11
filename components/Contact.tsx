@@ -44,10 +44,10 @@ function Contact({ developer }: Props) {
           {developer[0].contact}
         </p>
         <div className="flex flex-col items-start space-y-3 pt-10 text-lg text-red-500">
-          <Link href={""} target="__blank">
+          <Link href={developer[0].eMail} target="__blank">
             <div className="flex flex-shrink-0 items-center rounded-2xl p-3 transition duration-200 hover:bg-white/5">
               <FaEnvelopeSquare className="mr-1 h-6 w-6" />
-              yusufakcay22.0@gmail.com
+              business@yusufakcay.dev
             </div>
           </Link>
           <Link href={developer[0].linkedin} target="__blank">
