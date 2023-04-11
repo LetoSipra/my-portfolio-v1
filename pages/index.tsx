@@ -204,5 +204,6 @@ export async function getStaticProps() {
       projects,
       developer,
     },
+    revalidate: 600,
   };
 }
