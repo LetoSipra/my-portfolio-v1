@@ -73,7 +73,7 @@ function Landing({ developer }: Props) {
             <animated.span
               style={headTitle3}
               className="block bg-gradient-to-r from-slate-500 to-slate-300 bg-clip-text py-1 text-transparent">
-              Developer from Turkey.
+              Web Developer from Turkey.
             </animated.span>
           </h1>
           <animated.p
