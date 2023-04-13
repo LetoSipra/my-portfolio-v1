@@ -10,6 +10,7 @@ import { MutableRefObject, useEffect, useRef, useState } from "react";
 import NavMenu from "@/components/NavMenu";
 import { useMediaQuery } from "react-responsive";
 import Link from "next/link";
+import { client } from "@/utility/GraphQLClient";
 
 interface Props {
   projects: Projects[];
@@ -164,10 +165,6 @@ export default function Home({ projects, developer }: Props) {
   );
 }
 
-const client = new GraphQLClient(
-  "https://eu-central-1-shared-euc1-02.cdn.hygraph.com/content/clg3l7ldk1d6w01t0h5ds7uwf/master"
-);
-
 const QUERY = gql`
   {
     developer {
@@ -190,6 +187,9 @@ const QUERY = gql`
       linkedin
       github
       twitter
+      resume {
+        url
+      }
     }
     projects {
       title
@@ -207,8 +207,8 @@ const QUERY = gql`
   }
 `;
 export async function getStaticProps() {
-  const { projects }: any = await client.request(QUERY);
-  const { developer }: any = await client.request(QUERY);
+  const { projects }: Props = await client.request(QUERY);
+  const { developer }: Props = await client.request(QUERY);
   return {
     props: {
       projects,

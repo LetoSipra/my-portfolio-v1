@@ -6,6 +6,7 @@ import {
   FaLinkedin,
   FaTwitterSquare,
 } from "react-icons/fa";
+import { HiDocument } from "react-icons/hi2";
 
 interface Props {
   developer: Developer[];
@@ -44,28 +45,34 @@ function Contact({ developer }: Props) {
           {developer[0].contact}
         </p>
         <div className="flex flex-col items-start space-y-3 pt-10 text-lg text-red-500">
-          <Link href={developer[0].eMail} target="__blank">
+          <Link href={developer[0].eMail} target="_blank">
             <div className="flex flex-shrink-0 items-center rounded-2xl p-3 transition duration-200 hover:bg-white/5">
               <FaEnvelopeSquare className="mr-1 h-6 w-6" />
               business@yusufakcay.dev
             </div>
           </Link>
-          <Link href={developer[0].linkedin} target="__blank">
+          <Link href={developer[0].linkedin} target="_blank">
             <div className="flex flex-shrink-0 items-center rounded-2xl p-3 transition duration-200 hover:bg-white/5">
               <FaLinkedin className="mr-1 h-6 w-6" />
               Linkedin
             </div>
           </Link>
-          <Link href={developer[0].github} target="__blank">
+          <Link href={developer[0].github} target="_blank">
             <div className="flex flex-shrink-0 items-center rounded-2xl p-3 transition duration-200 hover:bg-white/5">
               <FaGithubSquare className="mr-1 h-6 w-6" />
               Github
             </div>
           </Link>
-          <Link href={developer[0].twitter} target="__blank">
+          <Link href={developer[0].twitter} target="_blank">
             <div className="flex flex-shrink-0 items-center rounded-2xl p-3 transition duration-200 hover:bg-white/5">
               <FaTwitterSquare className="mr-1 h-6 w-6" />
               Twitter
+            </div>
+          </Link>
+          <Link href={"/resume"} target="_blank">
+            <div className="flex flex-shrink-0 items-center rounded-2xl p-3 transition duration-200 hover:bg-white/5">
+              <HiDocument className="mr-1 h-6 w-6" />
+              Resume
             </div>
           </Link>
         </div>

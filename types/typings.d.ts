@@ -32,4 +32,7 @@ interface Developer {
   linkedin: string;
   github: string;
   twitter: string;
+  resume: {
+    url: string;
+  };
 }
