@@ -1,20 +1,29 @@
 import { client } from "@/utility/GraphQLClient";
 import { gql } from "graphql-request";
+import Head from "next/head";
 
 interface Props {
-  resume: {
-    url: string;
-  };
   developer: Developer[];
 }
 
-function resume({ resume }: Props) {
+function resume({ developer }: Props) {
   return (
-    <iframe
-      src={resume.url}
-      className="h-screen w-full"
-      title="Yusuf Akçay Resume"
-    />
+    <>
+      <Head>
+        <title>Yusuf Akçay Resume</title>
+        <meta
+          name="description"
+          content="Yusuf Akçay A Full Stack Web Developer Engineer Resume"
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href={developer[0].logo.url} />
+      </Head>
+      <iframe
+        src={developer[0].resume.url}
+        className="h-screen w-full"
+        title="Yusuf Akçay Resume"
+      />
+    </>
   );
 }
 
@@ -26,16 +35,18 @@ const QUERY = gql`
       resume {
         url
       }
+      logo {
+        url
+      }
     }
   }
 `;
 
 export const getServerSideProps = async () => {
   const { developer }: Props = await client.request(QUERY);
-  const resume = developer[0].resume;
   return {
     props: {
-      resume,
+      developer,
     },
   };
 };

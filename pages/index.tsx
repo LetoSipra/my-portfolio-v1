@@ -3,7 +3,7 @@ import Header from "@/components/Header";
 import Landing from "@/components/Landing";
 import Projects from "@/components/Projects";
 import Head from "next/head";
-import { gql, GraphQLClient } from "graphql-request";
+import { gql } from "graphql-request";
 import Contact from "@/components/Contact";
 import Sidebar from "@/components/Sidebar";
 import { MutableRefObject, useEffect, useRef, useState } from "react";
