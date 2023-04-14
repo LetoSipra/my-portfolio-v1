@@ -13,7 +13,7 @@ function resume({ developer }: Props) {
         <title>Yusuf Akçay Resume</title>
         <meta
           name="description"
-          content="Yusuf Akçay A Full Stack Web Developer Engineer Resume"
+          content="Yusuf Akçay A Full Stack Web Developer Resume"
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href={developer[0].logo.url} />

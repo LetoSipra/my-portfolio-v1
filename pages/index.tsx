@@ -97,7 +97,7 @@ export default function Home({ projects, developer }: Props) {
         <title>Yusuf Akçay</title>
         <meta
           name="description"
-          content="Yusuf Akçay A Full Stack Web Developer Engineer Portfolio"
+          content="Yusuf Akçay A Full Stack Web Developer Portfolio"
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href={developer[0].logo.url} />
